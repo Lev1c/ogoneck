@@ -1,6 +1,11 @@
 import React from 'react';
 import { Route, Routes, Navigate} from "react-router-dom";
 import Home from '../components/main/home/home';
+import MainInfo from '../components/main/info/mainInfo';
+import Info from '../components/main/info/info';
+import NewsMain from '../components/main/news/newsMain';
+import News from '../components/main/news/news';
+import About from '../components/main/dopInfo/about';
 
 const SettingRouteMain = () => {
 
@@ -8,6 +13,14 @@ const SettingRouteMain = () => {
         <>
             <Routes>
                 <Route key={1} path={'/'} element={<Home/>} exact/>
+
+                <Route key={1} path={'/info'} element={<MainInfo/>} exact/>
+                <Route key={1} path={'/info/*'} element={<Info/>} exact/>
+
+                <Route key={1} path={'/news'} element={<NewsMain/>} exact/>
+                <Route key={1} path={'/news/*'} element={<News/>} exact/>
+                
+                <Route key={1} path={'/about'} element={<About/>} exact/>
 
                 <Route path="*" element={<Navigate to="/" />}/>
             </Routes>

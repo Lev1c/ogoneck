@@ -1,12 +1,14 @@
+import About from './about';
 import LinkHome from './linkHome';
 import MainPage from './mainPage';
 import Video from './video';
-import Welcome from './welcome';
+import Welcome from './news';
 
 function Home() {
   return (
     <div>
       <MainPage/>
+      
       <Welcome/>
       <Video/>
       <LinkHome/>

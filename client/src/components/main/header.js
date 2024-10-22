@@ -19,42 +19,39 @@ function Header() {
                 <li className="ul-header-one-li">
                     <Link className="ul-header-one-li-link" to={'/'}><i className="bi bi-eye mr-5"></i>Версия для слабовидящих</Link>
                 </li>
+                <li className="ul-header-one-li">|</li>
+                <li className="ul-header-one-li">
+                    <Link className="ul-header-one-li-link" to={'/'}><i class="bi bi-box-arrow-in-right"></i></Link>
+                </li>
             </ul>
         </div>
       </div>
       <div className="header-two">
         <div className="container header-two-block">
-            <h1 className="header-two-block-text-main">
-                Государственное казенное учреждение Самарской области
-            </h1>
-            <h1 className="header-two-block-text-main">
-                «Социально – реабилитационный центр для несовершеннолетних»
-            </h1>
-            <h1 className="header-two-block-text-main">
-               «Огонёк»
-            </h1>
             <div className="header-two-block-menu">
                 <ul className="ul-header-two">
                     <li className="ul-header-two-li">
-                        <Link to={'/'}><img src={logo} alt="logo" width={90}/></Link>
+                        <Link to={'/'}>
+                            <img src={logo} alt="logo" width={50}/>
+                        </Link>
                     </li>
                 </ul>
                 <div style={{width: '83%'}}>
                     <ul className="ul-header-two">
                         <li className="ul-header-two-li">
-                            Cведения об учреждении
+                            <Link to={'/about'} className="ul-header-two-li-link">Cведения об учреждении</Link>
                         </li>
                         <li className="ul-header-two-li">
-                            Новости
+                            <Link to={'/news'} className="ul-header-two-li-link">Новости</Link>
                         </li>
                         <li className="ul-header-two-li">
-                            Контакты
+                            <Link to={'/'} className="ul-header-two-li-link">Контакты</Link>
                         </li>
                         <li className="ul-header-two-li">
-                            Документы
+                            <Link to={'/'} className="ul-header-two-li-link">Документы</Link>
                         </li>
                         <li className="ul-header-two-li">
-                            Доп. информация
+                            <Link to={'/info'} className="ul-header-two-li-link">Доп. информация</Link>
                         </li>
                     </ul>
                 </div>

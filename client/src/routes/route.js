@@ -23,5 +23,4 @@ export const publicRoutes = [
         path: AUTH_ROUTE,
         Component: <Auth/>
     },
-
 ]

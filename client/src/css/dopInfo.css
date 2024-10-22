@@ -1,0 +1,25 @@
+.info-about-block {
+    width: 75%;
+    margin-top: 25px;
+}
+
+.info h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 0.7px;
+}
+
+.info-about-block-list {
+    list-style-type: none;
+    padding: 0;
+    padding-left: 15px;
+    gap: 5px;
+    display: grid;
+}
+
+.info-about-block-list-two {
+    margin-top: 20px;
+    gap: 10px;
+    display: grid;
+}
