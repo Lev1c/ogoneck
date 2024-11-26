@@ -61,7 +61,7 @@ class NewsController {
             });
 
             // Возвращаем отсортированный массив объектов
-            res.send('Hello, Vercel222!');
+            res.json(news);
         } catch (error) {
             console.error("Error fetching documents: ", error);
             res.status(500).json({ error: 'Произошла ошибка' });
