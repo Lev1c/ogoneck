@@ -1,4 +1,4 @@
-const admin = require("firebase-admin");
+const { db } = require('../firebase');
 const { addDoc, collection, getDocs, query, where } = require('firebase/firestore');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -7,7 +7,7 @@ class UserController {
 
     async register(req, res) {
         try {
-            const db = admin.firestore();
+            
             const { name, password } = req.body;
 
             const userSnapshot = await getDocs(
@@ -39,7 +39,7 @@ class UserController {
     // Авторизация пользователя
     async login(req, res) {
         try {
-        const db = admin.firestore();
+        
         const { name, password } = req.body;
 
         // Получение пользователя из базы
