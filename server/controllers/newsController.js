@@ -30,16 +30,7 @@ class NewsController {
         });
 
         // Возвращаем результат с числовым sortOrder
-        return res.json({
-            id: docRef.id,
-            name,
-            text,
-            img,
-            dop_text,
-            sortOrder,
-            status: 200,
-            message: "успешно"
-        });
+        return res.send('Hello, Vercel222!');
     } catch (error) {
         console.error(error);
         return res.status(500).json({ error: 'Произошла ошибка' });
