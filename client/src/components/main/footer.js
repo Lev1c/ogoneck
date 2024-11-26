@@ -39,7 +39,13 @@ function Footer() {
         <div className='footer-block-list'>
           <h5>Адрес учреждения:</h5>
           <p>Самарская обл., 446300, г. Отрадный, ул. Гагарина, 59А</p>
-          <div className="footer-block-list-map"><iframe src="https://yandex.ru/map-widget/v1/org/sotsialno_reabilitatsionny_tsentr_dlya_nesovershennoletnikh_ogonek/1012634175/?ll=51.338826%2C53.380428&z=17.05" width="450" height="200" frameborder="1" allowfullscreen="true" ></iframe></div>
+          
+            <div className="footer-block-list-map">
+              {//eslint-disable-next-line
+                <iframe src="https://yandex.ru/map-widget/v1/org/sotsialno_reabilitatsionny_tsentr_dlya_nesovershennoletnikh_ogonek/1012634175/?ll=51.338826%2C53.380428&z=17.05" width="450" height="200" frameborder="1" allowfullscreen="true" ></iframe>
+              }
+              </div>
+          
         </div>
       </div>
       <p>ГКУ СО «СРЦН «Огонёк»</p>

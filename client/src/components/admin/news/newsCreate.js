@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {  useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-import { newsCreate, newsGetId } from "../../../api/news";
+import { newsCreate} from "../../../api/news";
 
 
 
@@ -9,12 +9,11 @@ function NewsCreate() {
 
   const navigate = useNavigate()
 
-  const [newsRes, setNewsRes] = useState()
    
   const [name, setName] = useState("")
   const [text, setText] = useState("")
   const [dopText, setDopText] = useState("")
-  const [img, setImg] = useState("")
+  
 
   const clickCreate = () => {
     newsCreate(name, text, dopText, base64String).then(res => {
@@ -36,6 +35,7 @@ function NewsCreate() {
           const reader = new FileReader();
           reader.onloadend = () => {
               setBase64String(reader.result); // Результат в Base64
+              setDopText('')
           };
           reader.readAsDataURL(file); // Конвертация в Base64
       }

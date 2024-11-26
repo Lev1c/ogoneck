@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { changeTrim, deleteTrim, getClaim } from "../../https";
+import { getClaim } from "../../https";
 import SettingRouteMainAdmin from "../../routes/settingRouteMainAdmin";
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ function Admin() {
     getClaim().then(data => setRes(data))
   }, [])
 
-
+  console.log(res)
   return (
     <div>
         <div class="container">

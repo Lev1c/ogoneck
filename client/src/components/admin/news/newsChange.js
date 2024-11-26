@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import parse from "html-react-parser";
 import { newsChange, newsDelete, newsGetId } from "../../../api/news";
 
 
@@ -24,6 +23,7 @@ function NewsChange() {
         setText(res.text)
         setBase64(res.img)
         setNewsRes(res)
+        setDopText("")
     })
    }, [id])
 

@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import parse from "html-react-parser";
-import { newsChange, newsDelete, newsGetId } from "../../../api/news";
 import { infoChange, infoDelete, infoGetId } from "../../../api/info";
 
 
@@ -10,8 +8,6 @@ function InfoChange() {
 
    const { id } = useParams()
    const navigate = useNavigate()
-
-   const [newsRes, setNewsRes] = useState()
    
    const [idNews, setIdNews] = useState("")
    const [name, setName] = useState("")
@@ -25,7 +21,6 @@ function InfoChange() {
     })
    }, [id])
 
-   console.log(newsRes)
 
    const clickSave = () => {
     infoChange(idNews, name, text).then(res => {

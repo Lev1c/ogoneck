@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { newsGet } from "../../../api/news";
-import Skeleton from 'react-loading-skeleton'
+
 
 function NewsMain() {
 
