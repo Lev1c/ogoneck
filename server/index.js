@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 
 app.use(express.json({ limit: '500mb' }));
 app.use(express.urlencoded({ limit: '500mb' }));
-app.use('/', router);
+app.use('/as', router);
 
 const start = async () => {
     try {
