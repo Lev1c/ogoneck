@@ -5,6 +5,7 @@ const http = require('http');
 const router = require('./routes/index');
 const firebaseAdmin = require('./firebase'); // Firebase инициализация
 
+
 const PORT = process.env.PORT || 8000;
 
 const app = express();
@@ -24,7 +25,8 @@ app.use((req, res, next) => {
 
 app.use(express.json({ limit: '500mb' }));
 app.use(express.urlencoded({ limit: '500mb' }));
-app.use('/as', router);
+app.use('/api', router);
+
 
 const start = async () => {
     try {
