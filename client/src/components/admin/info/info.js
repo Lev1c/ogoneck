@@ -2,24 +2,30 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { infoGet } from "../../../api/info";
 
-function MainInfo() {
 
-    const [list, setList] = useState()
+function InfoAdmin() {
+
+  const [list, setList] = useState()
     
     useEffect(() => {
         infoGet().then((res) => setList(res))
     }, [])
 
-    console.log(list)
 
-    return (
-    <div className="container"> 
-      <div className="info">
+  return (
+    <div>
+       <div className="info">
         <h2>Меню</h2>
+        <div className="button-admin">
+          <Link to={'/admin/info/create'} className="button-admin-link">
+            <button className="button-admin_create"><i class="bi bi-plus-lg"></i> Создать</button>
+          </Link>
+          <button className="button-admin_delete"><i class="bi bi-trash-fill"></i> Удалить</button>
+        </div>
             <div className="info-block">
                 {list && list.map(res => {
                     return (
-                        <Link className="card-info" to={`/info/${res.sortOrder}`}>
+                        <Link className="card-info" to={`/admin/info/change/${res.sortOrder}`}>
                             <div className='card-info-icon'>
                                 <i class="bi bi-file-earmark-text"></i>
                             </div>
@@ -34,4 +40,4 @@ function MainInfo() {
   );
 }
 
-export default MainInfo;
+export default InfoAdmin;

@@ -1,79 +1,90 @@
-const { User } = require('../models/UserModel')
+const admin = require("firebase-admin");
+const { addDoc, collection, getDocs, query, where } = require('firebase/firestore');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
-const userTokens = {};
 
 class UserController {
 
-    async createUser(req, res) {
+    async register(req, res) {
         try {
+            const db = admin.firestore();
             const { name, password } = req.body;
 
-            const newUser = await User.create({
+            const userSnapshot = await getDocs(
+            query(collection(db, 'users'), where('name', '==', name))
+            );
+        
+            if (!userSnapshot.empty) {
+                return res.status(400).json({ error: 'Пользователь с таким именем уже существует' });
+            }
+
+            // Хэшируем пароль перед сохранением
+            const hashedPassword = await bcrypt.hash(password, 10);
+
+            // Создаем нового пользователя в Firestore
+            const docRef = await addDoc(collection(db, 'users'), {
                 name,
-                password
+                password: hashedPassword,
+                isAdmin: false
             });
 
-            return res.json(newUser);
+            // Отправляем ответ о успешной регистрации
+            return res.json({ message: 'Пользователь успешно зарегистрирован', id: docRef.id });
         } catch (error) {
             console.error(error);
-            return res.status(500).json({ error: 'Произошла ошибка при создании категории' });
+            return res.status(500).json({ error: 'Произошла ошибка при регистрации' });
         }
     }
 
-    
-
-    async loginUser(req, res) {
+    // Авторизация пользователя
+    async login(req, res) {
         try {
-            const { name, password } = req.body;
+        const db = admin.firestore();
+        const { name, password } = req.body;
 
-            // Проверяем, существует ли пользователь с указанным именем и паролем
-            const user = await User.findOne({ where :{name: name} });
+        // Получение пользователя из базы
+        const userSnapshot = await getDocs(query(collection(db, 'users'), where('name', '==', name)));
+        const user = userSnapshot.docs[0]?.data();
 
-            if (!user) {
-                return res.status(401).json({ error: 'Неверные учетные данные' });
-            } 
-
-            if (user.password !== password) {
-                return res.status(401).json({ error: 'Неверные учетные данные' });
-            }   
-
-            // Удаляем старый токен, если он существует
-            if (userTokens[user.id]) {
-                delete userTokens[user.id];
-            }
-
-            // Создаем JWT токен
-            const token = jwt.sign({ userId: user.id }, 'FAQ4TWHEBFDS@#', { expiresIn: '1h' });
-
-            // Сохраняем новый токен
-            userTokens[user.id] = token;
-
-            return res.json({ user, token });
-        } catch (error) {
-            console.error(error);
-            return res.status(500).json({ error: 'Произошла ошибка при аутентификации' });
+        if (!user) {
+            return res.status(404).json({ error: 'Пользователь не найден' });
         }
+
+        // Проверка пароля
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ error: 'Неверный пароль' });
+        }
+
+        // Генерация JWT токена с флагом isAdmin
+        const token = jwt.sign(
+            { id: userSnapshot.docs[0].id, name: user.name, isAdmin: user.isAdmin || false },
+            process.env.SECRET_KEY,
+            { expiresIn: '1h' }
+        );
+
+        res.json({ token });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Произошла ошибка при авторизации' });
+    }
     }
 
+    // Защищенный маршрут (требует авторизации)
     async protectedRoute(req, res) {
         try {
-            // Ваш мидлвар для проверки наличия токена в заголовке запроса
-            const token = req.headers.authorization.split(' ')[1];
-            
+            const token = req.headers.authorization?.split(' ')[1]; // Получаем токен из заголовков
+
             if (!token) {
-                return res.status(401).json({ error: 'Токен отсутствует' });
+                return res.status(401).json({ error: 'Токен не найден' });
             }
 
-            const decodedToken = jwt.verify(token, process.env.SECRET_KEY);
-
-            const user = await User.findOne({where : {id: decodedToken.userId}});
-
-
-            return res.json({ message: 'Действие выполнено успешно', user, decodedToken });
+            // Проверяем токен
+            const decoded = jwt.verify(token, process.env.SECRET_KEY);
+            return res.json({ message: 'Доступ разрешен', user: decoded });
         } catch (error) {
             console.error(error);
-            return res.status(401).json({ error: 'Неверный токен' });
+            return res.status(401).json({ error: 'Неверный или истекший токен' });
         }
     }
     

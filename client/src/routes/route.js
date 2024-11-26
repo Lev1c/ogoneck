@@ -13,12 +13,10 @@ export const authRoutes = [
 ]
 
 export const publicRoutes = [
-    
     {
         path: HOME_ROUTE,
         Component: <Main/>
     },
-
     {
         path: AUTH_ROUTE,
         Component: <Auth/>

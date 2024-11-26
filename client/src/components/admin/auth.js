@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { loginForm } from "../../https";
+import { userLogin } from "../../api/user";
 
 function Auth() {
   const [name, setName] = useState('')
@@ -7,13 +7,18 @@ function Auth() {
   const [res, setRes] = useState()
 
   const sendButton = () => {
-    loginForm(name, password).then(data => {
+    userLogin(name, password).then(data => {
         setRes(data)
         if(data.token) {
             localStorage.setItem('token', data.token)
-            window.location.replace('/admin')
+            window.location.replace('/admin/news')
         }
     })
+  }
+
+  let token = localStorage.getItem('token')
+  if(token) {
+    window.location.replace('/admin/news')
   }
 
   return (

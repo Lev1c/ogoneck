@@ -21,7 +21,7 @@ function Header() {
                 </li>
                 <li className="ul-header-one-li">|</li>
                 <li className="ul-header-one-li">
-                    <Link className="ul-header-one-li-link" to={'/'}><i class="bi bi-box-arrow-in-right"></i></Link>
+                    <Link className="ul-header-one-li-link" to={'/auth'}><i class="bi bi-box-arrow-in-right"></i></Link>
                 </li>
             </ul>
         </div>
@@ -39,16 +39,16 @@ function Header() {
                 <div style={{width: '83%'}}>
                     <ul className="ul-header-two">
                         <li className="ul-header-two-li">
-                            <Link to={'/about'} className="ul-header-two-li-link">Cведения об учреждении</Link>
+                            <Link to={'/info/1'} className="ul-header-two-li-link">Cведения об учреждении</Link>
                         </li>
                         <li className="ul-header-two-li">
                             <Link to={'/news'} className="ul-header-two-li-link">Новости</Link>
                         </li>
                         <li className="ul-header-two-li">
-                            <Link to={'/'} className="ul-header-two-li-link">Контакты</Link>
+                            <Link to={'/info/2'} className="ul-header-two-li-link">Контакты</Link>
                         </li>
                         <li className="ul-header-two-li">
-                            <Link to={'/'} className="ul-header-two-li-link">Документы</Link>
+                            <Link to={'/info/3'} className="ul-header-two-li-link">Документы</Link>
                         </li>
                         <li className="ul-header-two-li">
                             <Link to={'/info'} className="ul-header-two-li-link">Доп. информация</Link>

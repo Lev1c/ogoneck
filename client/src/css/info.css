@@ -92,3 +92,10 @@
    color: #1f67e2;
    
 }
+
+.info-link-back {
+    color: black;
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: block;
+}

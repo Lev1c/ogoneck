@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { newsGet } from "../../../api/news";
-import Skeleton from 'react-loading-skeleton'
+import { Link } from "react-router-dom";
 
-function NewsMain() {
+
+function NewsAdmin() {
 
   const [newsList, setNewsList] = useState()
 
@@ -12,15 +12,19 @@ function NewsMain() {
   }, [])
 
   return (
-    <div className="container">
-        <div className="info">
+    <div>
+       <div className="info">
             <h2>Новости</h2>
+            <div className="button-admin">
+              <Link to={'/admin/news/create'} className="button-admin-link">
+                <button className="button-admin_create"><i class="bi bi-plus-lg"></i> Создать</button>
+              </Link>
+              <button className="button-admin_delete"><i class="bi bi-trash-fill"></i> Удалить</button>
+            </div>
             <div className="news-block-for-card">
               {newsList && newsList.map(res => {
-                console.log(res)
                 return (
-                  <Link className="news-block-card" to={`/news/${res.sortOrder}`}>
-                    
+                  <Link className="news-block-card" to={`/admin/news/change/${res.sortOrder}`}>
                         <div className='news-block-card-block-img'>
                           <img className='news-block-card-img' src={res.img} alt=''/>
                         </div>
@@ -45,4 +49,4 @@ function NewsMain() {
   );
 }
 
-export default NewsMain;
+export default NewsAdmin;
