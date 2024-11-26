@@ -11,6 +11,10 @@ const app = express();
 
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.send('Hello, Vercel!');
+});
+
 const server = http.createServer(app);
 
 app.use((req, res, next) => {
