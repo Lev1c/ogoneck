@@ -1,9 +1,12 @@
 const Router = require('express')
 const router = new Router()
 const userRouter = require('./userRouter')
-const claimRouter = require('./claimRouter')
+const infoRouter = require('./infoRouter')
+const newsRouter = require('./newsRouter')
 
-router.use('/', userRouter);
-router.use('/', claimRouter);
+router.use('/api', userRouter);
+router.use('/api', infoRouter);
+router.use('/api', newsRouter);
+
 
 module.exports = router

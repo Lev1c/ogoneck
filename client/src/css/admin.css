@@ -1,0 +1,148 @@
+.admin-header {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    border-bottom: 1px solid black;
+    margin-bottom: 35px;
+}
+
+.admin-header-title {
+    font-family: 600;
+}
+
+.admin-header-link {
+    gap: 30px;
+    display: flex;
+}
+
+.button-admin-link {
+    text-decoration: none;
+}
+
+.admin-header_link {
+    color: #1b1b1b;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.admin-header_link:hover {
+    color: #5f5f5f;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.button-admin {
+    gap: 20px;
+    display: flex;
+}
+
+.button-admin_exit {
+    background-color: rgb(65, 65, 245);
+    border-radius: 5px;
+    border: 1px solid rgb(65, 65, 245);
+    padding: 5px 30px 5px 25px;
+
+    color: white;
+    font-weight: 600;
+
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    transition: 0.3s;
+}
+
+.button-admin_exit:hover {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(65, 65, 245);
+    color: rgb(65, 65, 245);
+    transition: 0.3s;
+}
+
+.button-admin_create {
+    background-color: rgb(65, 65, 245);
+    border-radius: 5px;
+    border: 1px solid rgb(65, 65, 245);
+    padding: 5px 30px 5px 25px;
+
+    color: white;
+    font-weight: 600;
+
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    transition: 0.3s;
+}
+
+.button-admin_create:hover {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(65, 65, 245);
+    color: rgb(65, 65, 245);
+    transition: 0.3s;
+}
+
+.button-admin_delete {
+    background-color: rgb(245, 65, 65);
+    border-radius: 5px;
+    border: 1px solid rgb(245, 65, 65);
+    padding: 5px 30px 5px 25px;
+
+    color: white;
+    font-weight: 600;
+
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    transition: 0.3s;
+}
+
+.button-admin_delete:hover {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(245, 65, 65);
+    color: rgb(245, 65, 65);
+    transition: 0.3s;
+}
+
+.admin-block-title {
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-block-title_button {
+    background-color: rgb(8, 218, 19);
+    border-radius: 5px;
+    border: 1px solid rgb(8, 218, 19);
+    padding: 5px 30px 5px 25px;
+
+    color: white;
+    font-weight: 600;
+
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    transition: 0.3s;
+}
+
+.admin-block-title_button:hover {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(8, 218, 19);
+    color: rgb(8, 218, 19);
+    transition: 0.3s;
+}
+
+.admin-block-title_textarea {
+    margin-top: 20px;
+    width: 100%;
+    min-height: 200px;
+}

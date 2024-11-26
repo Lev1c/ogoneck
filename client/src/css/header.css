@@ -7,10 +7,10 @@
     padding: 0;
     list-style-type: none;
     margin: 2px;
+    gap: 5px;
 }
 
 .ul-header-one-li {
-    margin-right: 10px;
     padding: 5px;
     font-size: 14px;
     font-weight: 300;
@@ -41,8 +41,8 @@
 }
 
 .header-two-block {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     color: white;
     letter-spacing: 0.5px;
 }
@@ -68,9 +68,29 @@
 .header-two-block-menu {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .ul-header-two-li {
     font-weight: 300;
     margin-right: 35px;
+    font-weight: 500;
+}
+
+.img-logo {
+    opacity: 50%;
+}
+
+.ul-header-two-li-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.2s
+}
+
+.ul-header-two-li-link:hover {
+    color: #dbdbdb;
+    text-decoration: none;
+    padding-bottom: 28px;
+    border-bottom: 2px solid #dbdbdb;
+    transition: 0.2s;
 }

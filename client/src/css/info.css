@@ -1,0 +1,101 @@
+.info {
+    margin-top: 50px;
+    margin-bottom: 150px;
+}
+
+.info h2 {
+    border-bottom: 1px solid #507cc9;
+    padding-bottom: 15px;
+}
+
+.info-block {
+    margin-top: 50px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card-info {
+    display: flex;
+    padding: 5px 25px;
+    padding-left: 10px;
+    border: 1px solid #507cc9;
+    border-radius: 10px;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: #507cc9;
+    transition: 0.2s;
+    width: 31%;
+}
+
+.card-info:hover {
+    background-color: #ffffff;
+    color: black;
+    transition: 0.2s;
+}
+
+.card-info:hover .card-info-icon {
+    color: #000000;
+}
+
+.card-info h4{
+    margin: 0;
+    font-size: 16px;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-info-icon {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.info-block-text {
+    margin-top: 25px;
+    width: 75%;
+    letter-spacing: 1px;
+    color: rgb(105, 105, 105);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.info-block-list {
+    gap: 10px;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.info-block-list i{
+    color: #507cc9;
+    font-size: 14px;
+}
+
+.info-block-list li {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.info-block-list a{
+   text-decoration: none;
+   border-bottom: 1px solid #1f67e2;
+   color: #1f67e2;
+   
+}
+
+.info-link-back {
+    color: black;
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: block;
+}
