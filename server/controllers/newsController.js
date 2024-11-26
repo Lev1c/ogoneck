@@ -30,7 +30,17 @@ class NewsController {
         });
 
         // Возвращаем результат с числовым sortOrder
-        return res.send('Hello, Vercel222!');
+        return res.json({
+            id: docRef.id,
+            name,
+            text,
+            img,
+            dop_text,
+            sortOrder,
+            status: 200,
+            message: "успешно"
+        })
+        res.send('Hello, Vercel!');
     } catch (error) {
         console.error(error);
         return res.status(500).json({ error: 'Произошла ошибка' });
@@ -51,7 +61,7 @@ class NewsController {
             });
 
             // Возвращаем отсортированный массив объектов
-            res.json(news);
+            res.send('Hello, Vercel222!');
         } catch (error) {
             console.error("Error fetching documents: ", error);
             res.status(500).json({ error: 'Произошла ошибка' });
