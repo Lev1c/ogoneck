@@ -1,4 +1,3 @@
-import About from './about';
 import LinkHome from './linkHome';
 import MainPage from './mainPage';
 import Video from './video';
