@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const $host = axios.create({
-    baseURL: "https://ogoneck.vercel.app/"
+    baseURL: "https://ogoneck.vercel.app/api"
 })
 
 const $authHost = axios.create({
