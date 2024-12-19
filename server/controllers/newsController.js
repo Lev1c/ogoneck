@@ -1,32 +1,23 @@
 const { db } = require('../firebase');
-const { storage } = require('../firebase');
 const { collection, addDoc, updateDoc, doc, query, orderBy, getDocs, where, deleteDoc  } = require("firebase/firestore");
-const { ref, uploadString, getDownloadURL } = require("firebase/storage");
+
 
 class NewsController {
 
     async createNews(req, res) {
         try {
+
         const { name, text, img, dop_text } = req.body;
 
         // Получаем документы из коллекции "news", отсортированные по полю "sortOrder"
         const q = query(collection(db, 'news'), orderBy('sortOrder', 'desc'));
         const snapshot = await getDocs(q);
-
+        
         // Устанавливаем sortOrder в зависимости от последнего документа
-        let sortOrder = 1; // Если коллекция пуста, sortOrder будет равен 1
+        let sortOrder = 1;  // Если коллекция пуста, sortOrder будет равен 1
         if (!snapshot.empty) {
             const lastDoc = snapshot.docs[0];
             sortOrder = lastDoc.data().sortOrder + 1;
-        }
-
-        // Проверяем, есть ли dop_text и создаем ссылку для сохранения
-        let dopTextUrl = null;
-        if (dop_text) {
-            const filePath = `news/${name}-${Date.now()}/dop_text.txt`; // Уникальный путь для файла
-            const fileRef = ref(storage, filePath); // Создаем ссылку на файл в хранилище
-            await uploadString(fileRef, dop_text, "raw"); // Загружаем текст в хранилище
-            dopTextUrl = await getDownloadURL(fileRef); // Получаем URL файла
         }
 
         // Создаем новый документ в коллекции "news"
@@ -34,8 +25,8 @@ class NewsController {
             name,
             text,
             img,
-            dop_text_url: dopTextUrl, // Сохраняем ссылку на файл
-            sortOrder, // Присваиваем числовое значение sortOrder
+            dop_text,
+            sortOrder  // Присваиваем числовое значение sortOrder
         });
 
         // Возвращаем результат с числовым sortOrder
@@ -44,14 +35,14 @@ class NewsController {
             name,
             text,
             img,
-            dop_text_url: dopTextUrl,
+            dop_text,
             sortOrder,
             status: 200,
-            message: "успешно",
+            message: "успешно"
         });
     } catch (error) {
         console.error(error);
-        return res.status(500).json({ error: 'Произошла ошибка', details: error.message });
+        return res.status(500).json({ error: 'Произошла ошибка' });
     }
     }
     
