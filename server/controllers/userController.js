@@ -1,7 +1,7 @@
-const { addDoc, collection, getDocs, query, where } = require('firebase/firestore');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { User } = require('../models/user');
+const config = require('../config');
 
 class UserController {
 
@@ -58,7 +58,7 @@ class UserController {
         // Генерация JWT токена
         const token = jwt.sign(
             { id: users.id, name: users.name, role: users.role || 0 },
-            process.env.SECRET_KEY,
+            config.SECRET_KEY,
             { expiresIn: '1h' }
         );
 
@@ -79,7 +79,7 @@ class UserController {
             }
 
             // Проверяем токен
-            const decoded = jwt.verify(token, process.env.SECRET_KEY);
+            const decoded = jwt.verify(token, config.SECRET_KEY);
             return res.json({ message: 'Доступ разрешен', user: decoded });
         } catch (error) {
             console.error(error);
