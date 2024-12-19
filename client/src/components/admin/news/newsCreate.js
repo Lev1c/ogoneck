@@ -3,6 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { newsCreate} from "../../../api/news";
 
+import ReactQuill, { Quill } from 'react-quill';
+import "react-quill/dist/quill.snow.css";
+
+import QuillResizeImage from "quill-resize-image";
+
+// Регистрация модуля
+Quill.register("modules/resize", QuillResizeImage);
 
 
 function NewsCreate() {
@@ -16,7 +23,7 @@ function NewsCreate() {
   
 
   const clickCreate = () => {
-    newsCreate(name, text, dopText, base64String).then(res => {
+    newsCreate(name, text, content, base64String).then(res => {
       console.log(res)
       if(res.status === 200) {
             alert(res.message)
@@ -40,6 +47,30 @@ function NewsCreate() {
           reader.readAsDataURL(file); // Конвертация в Base64
       }
   };
+
+  const [content, setContent] = useState("");
+
+  const Editor = {
+      modules: {
+        toolbar: [
+          [{ header: [1, 2, 3, false] }],
+          ["bold", "italic", "underline", "strike"], // Форматирование текста
+          ["image", "blockquote", "code-block"], // Вставка изображений, цитат, блоков кода
+          [{ list: "ordered" }, { list: "bullet" }], // Списки
+          ["clean"], // Очистка форматирования
+      ],
+        resize: {
+          locale: {},
+        },
+      },
+      formats: [
+        'image',
+        'header', 
+    'bold', 'italic', 'underline', 'strike', 
+    'image', 'blockquote', 'code-block', 
+    'list', 'bullet'
+      ],
+    }
 
   return (
     <div className="container">
@@ -69,12 +100,15 @@ function NewsCreate() {
                   </div>
               )}
             </div>
-            <div>
-                <textarea
-                    className="admin-block-title_textarea"
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                />
+            <div style={{ margin: "20px" }}>
+              <ReactQuill
+                modules={Editor.modules}
+                formats={Editor.formats}
+                theme='snow'
+                value={content}
+                onChange={setContent}
+                style={{ height: "300px", marginBottom: "20px", borderRadius: 10 }}
+              />
             </div>
         </div>
     </div>

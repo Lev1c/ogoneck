@@ -1,7 +1,7 @@
-const { db } = require('../firebase');
 const { addDoc, collection, getDocs, query, where } = require('firebase/firestore');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { User } = require('../models/user');
 
 class UserController {
 
@@ -10,26 +10,27 @@ class UserController {
             
             const { name, password } = req.body;
 
-            const userSnapshot = await getDocs(
-            query(collection(db, 'users'), where('name', '==', name))
-            );
-        
-            if (!userSnapshot.empty) {
-                return res.status(400).json({ error: 'Пользователь с таким именем уже существует' });
+            if (!name && !password) {
+                return res.status(400).json({ error: 'Поля пусты' });
             }
 
-            // Хэшируем пароль перед сохранением
+            const checkName = await User.findOne({ where: { name: name } });
+            
+            if (checkName) {
+                return res.status(400).json({ error: 'Указанный существует' });
+            }
+
             const hashedPassword = await bcrypt.hash(password, 10);
 
-            // Создаем нового пользователя в Firestore
-            const docRef = await addDoc(collection(db, 'users'), {
+            await User.create({
                 name,
                 password: hashedPassword,
-                isAdmin: false
+                role: 0,
             });
+        
 
             // Отправляем ответ о успешной регистрации
-            return res.json({ message: 'Пользователь успешно зарегистрирован', id: docRef.id });
+            return res.json({ message: 'Пользователь успешно зарегистрирован'});
         } catch (error) {
             console.error(error);
             return res.status(500).json({ error: 'Произошла ошибка при регистрации' });
@@ -43,27 +44,25 @@ class UserController {
         const { name, password } = req.body;
 
         // Получение пользователя из базы
-        const userSnapshot = await getDocs(query(collection(db, 'users'), where('name', '==', name)));
-        const user = userSnapshot.docs[0]?.data();
-
-        if (!user) {
+        const users = await User.findOne({ where: { name: name } });
+        if (!users) {
             return res.status(404).json({ error: 'Пользователь не найден' });
         }
 
         // Проверка пароля
-        const isPasswordValid = await bcrypt.compare(password, user.password);
+        const isPasswordValid = await bcrypt.compare(password, users.password);
         if (!isPasswordValid) {
             return res.status(401).json({ error: 'Неверный пароль' });
         }
 
-        // Генерация JWT токена с флагом isAdmin
+        // Генерация JWT токена
         const token = jwt.sign(
-            { id: userSnapshot.docs[0].id, name: user.name, isAdmin: user.isAdmin || false },
+            { id: users.id, name: users.name, role: users.role || 0 },
             process.env.SECRET_KEY,
             { expiresIn: '1h' }
         );
 
-        res.json({ token });
+        res.json({ token, users });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Произошла ошибка при авторизации' });

@@ -24,12 +24,17 @@ export const userLogin = async (name, pass) => {
     }
 }
 
-export const userProtected = async (name, text) => {
+export const userRrotected = async () => {
     try {
-        const {data} = await $host.post('/info-create', {
-            name, 
-            text, 
-        });
+        const token = localStorage.getItem('token'); // Получаем токен из localStorage
+        const { data } = await $host.post(
+            '/user-token',
+            {
+                headers: { 
+                    Authorization: `Bearer ${token}` // Указываем токен в заголовке
+                }
+            }
+        );
         
         return(data)
     } catch(e) {

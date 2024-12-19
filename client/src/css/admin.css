@@ -12,6 +12,17 @@
     font-family: 600;
 }
 
+.admin-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.admin-title h2 {
+    font-weight: 600;
+}
+
 .admin-header-link {
     gap: 30px;
     display: flex;
@@ -41,12 +52,12 @@
 }
 
 .button-admin_exit {
-    background-color: rgb(65, 65, 245);
+    background-color: rgb(255, 255, 255);
     border-radius: 5px;
-    border: 1px solid rgb(65, 65, 245);
-    padding: 5px 30px 5px 25px;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 2px 12px 2px 12px;
 
-    color: white;
+    color: rgb(0, 0, 0);
     font-weight: 600;
 
     display: flex;
@@ -57,9 +68,9 @@
 }
 
 .button-admin_exit:hover {
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(65, 65, 245);
-    color: rgb(65, 65, 245);
+    background-color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     transition: 0.3s;
 }
 

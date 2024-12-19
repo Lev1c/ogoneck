@@ -1,12 +1,14 @@
 import axios from "axios";
 
-const $host = axios.create({
+const $linkHost = axios.create({
     baseURL: "https://ogoneck.vercel.app/api"
 })
 
 const $authHost = axios.create({
-    baseURL: process.env.REACT_APP_API_URL
+    baseURL: "http://localhost:8000/api/"
 })
+
+let $host = $authHost
 
 const authInterceptor = config => {
     config.headers.authorization = `Bearer ${localStorage.getItem('token')}`

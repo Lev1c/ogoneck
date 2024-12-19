@@ -2,24 +2,31 @@ import { useEffect, useState } from "react";
 import { getClaim } from "../../https";
 import SettingRouteMainAdmin from "../../routes/settingRouteMainAdmin";
 import { Link } from "react-router-dom";
+import { userRrotected } from "../../api/user";
 
 function Admin() {
   const [res, setRes] = useState()
 
   useEffect(() => {
-    getClaim().then(data => setRes(data))
+    userRrotected().then(data => {
+      if(data && data.response && data.response.status === 401) {
+        localStorage.removeItem('token')
+        window.location.replace('/auth')
+      }
+    })
   }, [])
 
   console.log(res)
+  
   return (
     <div>
         <div class="container">
             <header class="admin-header">
-              <h2 className="admin-header-title">
+              <h3 className="admin-header-title">
                 <Link to={"/"} className="mr-5 admin-header_link">
                     Admin
                   </Link>
-              </h2>
+              </h3>
               <div className="admin-header-link">
                   <Link to={"/admin/news"} className="mr-5 admin-header_link">
                     Главная
@@ -36,7 +43,7 @@ function Admin() {
                   window.location.reload()
                   }}
                 >
-                  Выйти
+                  <i class="bi bi-box-arrow-right"></i>
                 </button>
             </header>
           </div>

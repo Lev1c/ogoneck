@@ -13,14 +13,16 @@ function NewsAdmin() {
 
   return (
     <div>
-       <div className="info">
+       <div className="admin-block">
+          <div className="admin-title">
             <h2>Новости</h2>
-            <div className="button-admin">
-              <Link to={'/admin/news/create'} className="button-admin-link">
-                <button className="button-admin_create"><i class="bi bi-plus-lg"></i> Создать</button>
-              </Link>
-              <button className="button-admin_delete"><i class="bi bi-trash-fill"></i> Удалить</button>
-            </div>
+              <div className="button-admin">
+                <Link to={'/admin/news/create'} className="button-admin-link">
+                  <button className="button-admin_create"><i class="bi bi-plus-lg"></i> Создать</button>
+                </Link>
+                <button className="button-admin_delete"><i class="bi bi-trash-fill"></i> Удалить</button>
+              </div>
+          </div>
             <div className="news-block-for-card">
               {newsList && newsList.map(res => {
                 return (
