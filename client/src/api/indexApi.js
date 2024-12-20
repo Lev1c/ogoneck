@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const $linkHost = axios.create({
-    baseURL: "https://ogoneck.vercel.app/api"
+    baseURL: "http://89.111.142.69:8000/api"
 })
 
 const $authHost = axios.create({
-    baseURL: "http://localhost:8000/api/"
+    baseURL: "http://89.111.142.69:8000/api/"
 })
 
 let $host = $authHost
