@@ -35,7 +35,7 @@ function NewsChange() {
    console.log(newsRes)
 
    const clickSave = () => {
-    newsChange(idNews, name, content, dopText, base64).then(res => {
+    newsChange(idNews, name, text, dopText, base64).then(res => {
         if(res.status === 200) {
         alert(res.message)
         console.log(res)
@@ -119,7 +119,7 @@ function NewsChange() {
                 modules={Editor.modules}
                 formats={Editor.formats}
                 theme='snow'
-                value={content}
+                value={text}
                 onChange={setText}
                 style={{ height: "300px", marginBottom: "20px", borderRadius: 10 }}
               />

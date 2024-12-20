@@ -12,9 +12,9 @@ function Info() {
    const [infoRes, setInfoRes] = useState()
 
    useEffect(() => { 
-      infoGetId(Number(id)).then((res) => setInfoRes(res))
+      infoGetId(id).then((res) => setInfoRes(res))
    }, [id])
-   console.log(infoRes)
+   
 
   return (
     <div className="container">

@@ -20,7 +20,7 @@ function NewsMain() {
               newsList && newsList.map(res => {
                 
                 return (
-                  <Link className="news-block-card" to={`/news/${res.sortOrder}`}>
+                  <Link className="news-block-card" to={`/news/${res.id}`}>
                     
                         <div className='news-block-card-block-img'>
                           <img className='news-block-card-img' src={res.img} alt=''/>

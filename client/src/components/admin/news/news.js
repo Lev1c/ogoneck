@@ -26,7 +26,7 @@ function NewsAdmin() {
             <div className="news-block-for-card">
               {newsList && newsList.map(res => {
                 return (
-                  <Link className="news-block-card" to={`/admin/news/change/${res.sortOrder}`}>
+                  <Link className="news-block-card" to={`/admin/news/change/${res.id}`}>
                         <div className='news-block-card-block-img'>
                           <img className='news-block-card-img' src={res.img} alt=''/>
                         </div>

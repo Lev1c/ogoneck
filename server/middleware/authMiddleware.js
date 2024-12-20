@@ -13,7 +13,7 @@ const adminAuthMiddleware = (req, res, next) => {
         const decoded = jwt.verify(token, process.env.SECRET_KEY);
 
         // Проверка флага isAdmin
-        if (!decoded.isAdmin) {
+        if (decoded.role !== 1) {
             return res.status(403).json({ error: "Нет прав доступа" });
         }
 

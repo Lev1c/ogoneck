@@ -21,7 +21,7 @@ function MainInfo() {
                 {list ? 
                 list && list.map(res => {
                     return (
-                        <Link className="card-info" to={`/info/${res.sortOrder}`}>
+                        <Link className="card-info" to={`/info/${res.id}`}>
                             <div className='card-info-icon'>
                                 <i class="bi bi-file-earmark-text"></i>
                             </div>

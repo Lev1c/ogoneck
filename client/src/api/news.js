@@ -10,11 +10,9 @@ export const newsGet = async () => {
     }
 }
 
-export const newsGetId = async (sortOrder) => {
+export const newsGetId = async (id) => {
     try {
-        const {data} = await $host.get(`/news-get-id/`, {
-            params: { sortOrder: sortOrder }
-        });
+        const {data} = await $host.get(`/news-get-id/${id}`,);
         
         return(data)   
     } catch(e) {

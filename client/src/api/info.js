@@ -10,19 +10,17 @@ export const infoGet = async () => {
     }
 }
 
-export const infoGetId = async (sortOrder) => {
+export const infoGetId = async (id) => {
     try {
-        const {data} = await $host.get(`info-get-id`, {
-            params: { sortOrder: sortOrder }
-        });
-        console.log(sortOrder)
+        const {data} = await $host.get(`/info-get-id/${id}`);
+
         return(data)   
     } catch(e) {
         return(e)
     }
 }
 
-export const infoCreate = async (name, text, dop_text, img) => {
+export const infoCreate = async (name, text) => {
     try {
         const token = localStorage.getItem('token'); // Получаем токен из localStorage
         const { data } = await $host.post(
@@ -71,12 +69,11 @@ export const infoDelete = async (id) => {
     try {
         const token = localStorage.getItem('token'); // Получаем токен из localStorage
         const { data } = await $host.delete(
-            '/info-delete',
+            `/info-delete/${id}`,
             {
                 headers: { 
                     Authorization: `Bearer ${token}` // Указываем токен в заголовке
                 },
-                data: { id }, // Передаем id как часть данных запроса
             }
         );
         

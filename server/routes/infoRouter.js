@@ -5,12 +5,12 @@ const adminAuthMiddleware = require('../middleware/authMiddleware');
 
 
 router.get('/info-get', userContoller.getAllInfo);
-router.get('/info-get-id', userContoller.getInfoById);
+router.get('/info-get-id/:id', userContoller.getInfoById);
 
-router.post('/info-create', adminAuthMiddleware, userContoller.createInfo);
+router.post('/info-create', userContoller.createInfo);
 
-router.patch('/info-change',adminAuthMiddleware, userContoller.updateInfo);
+router.patch('/info-change', userContoller.updateInfo);
 
-router.delete('/info-delete',adminAuthMiddleware, userContoller.deleteInfo);
+router.delete('/info-delete/:id', userContoller.deleteInfo);
 
 module.exports = router
