@@ -10,7 +10,7 @@ const News = sequelize.define('News', {
     type: DataTypes.TEXT,
   },
   img: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
   },
   dop_text: {
     type: DataTypes.STRING,
