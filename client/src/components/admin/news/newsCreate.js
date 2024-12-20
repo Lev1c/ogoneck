@@ -23,7 +23,7 @@ function NewsCreate() {
   
 
   const clickCreate = () => {
-    newsCreate(name, text, content, base64String).then(res => {
+    newsCreate(name, content, dopText, base64String).then(res => {
       console.log(res)
       if(res.status === 200) {
             alert(res.message)
