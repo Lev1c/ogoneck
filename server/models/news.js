@@ -7,7 +7,7 @@ const News = sequelize.define('News', {
     unique: true,
   },
   text: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
   },
   img: {
     type: DataTypes.STRING,

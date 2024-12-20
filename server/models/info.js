@@ -7,7 +7,7 @@ const Info = sequelize.define('Info', {
     unique: true,
   },
   text: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
   },
 });
 
