@@ -53,31 +53,33 @@ function NewsCreate() {
   const Editor = {
       modules: {
         toolbar: [
-          [{ header: [1, 2, 3, false] }],
-          ["bold", "italic", "underline", "strike"], // Форматирование текста
-          ["image", "blockquote", "code-block"], // Вставка изображений, цитат, блоков кода
-          [{ list: "ordered" }, { list: "bullet" }], // Списки
-          ["clean"], // Очистка форматирования
+          [{ 'header': [1, 2, false] }, { 'font': [] }],
+          ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+          [{'list': 'ordered'}, {'list': 'bullet'}, 
+           {'indent': '-1'}, {'indent': '+1'}],
+          ['link', 'image', 'video'],
+          ['clean']
       ],
         resize: {
           locale: {},
         },
       },
       formats: [
-        'image',
-        'header', 
-    'bold', 'italic', 'underline', 'strike', 
-    'image', 'blockquote', 'code-block', 
-    'list', 'bullet'
+        'header', 'font', 'size',
+        'bold', 'italic', 'underline', 'strike', 'blockquote',
+        'list', 'bullet', 'indent',
+        'link', 'image', 'video'
       ],
     }
 
   return (
     <div className="container">
         <div className="admin-block">
+          <div style={{display: 'flex'}}>
             <Link className="info-link-back" onClick={() => navigate(-1)}>
                 <i class="bi bi-arrow-left"></i>
             </Link>
+          </div>
             <div className="admin-block-title">
                 <input
                     className="admin-block-title_input"

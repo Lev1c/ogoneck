@@ -3,12 +3,6 @@
     margin-top: 25px;
 }
 
-.info h2 {
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 28px;
-    letter-spacing: 0.7px;
-}
 
 .info-about-block-list {
     list-style-type: none;

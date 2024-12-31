@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { infoGet } from "../../../api/info";
+import { infoGetAdmin } from "../../../api/info";
 
 
 function InfoAdmin() {
@@ -8,7 +8,7 @@ function InfoAdmin() {
   const [list, setList] = useState()
     
     useEffect(() => {
-        infoGet().then((res) => setList(res))
+      infoGetAdmin().then((res) => setList(res))
     }, [])
 
 
@@ -16,7 +16,7 @@ function InfoAdmin() {
     <div>
        <div className="admin-block">
         <div className="admin-title">
-            <h2>Меню</h2>
+            <h2>Разделы</h2>
               <div className="button-admin">
                 <Link to={'/admin/news/create'} className="button-admin-link">
                   <button className="button-admin_create"><i class="bi bi-plus-lg"></i> Создать</button>
@@ -27,7 +27,7 @@ function InfoAdmin() {
             <div className="info-block">
                 {list && list.map(res => {
                     return (
-                        <Link className="card-info" to={`/admin/info/change/${res.sortOrder}`}>
+                        <Link className="card-info" to={`/admin/info/change/${res.id}`}>
                             <div className='card-info-icon'>
                                 <i class="bi bi-file-earmark-text"></i>
                             </div>

@@ -7,6 +7,9 @@ const adminAuthMiddleware = require('../middleware/authMiddleware');
 router.get('/info-get', userContoller.getAllInfo);
 router.get('/info-get-id/:id', userContoller.getInfoById);
 
+
+router.get('/info-get-admin', userContoller.getAllInfoAdmin);
+
 router.post('/info-create', userContoller.createInfo);
 
 router.patch('/info-change', userContoller.updateInfo);

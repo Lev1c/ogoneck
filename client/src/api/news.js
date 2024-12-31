@@ -10,6 +10,16 @@ export const newsGet = async () => {
     }
 }
 
+export const newsGetAdmin = async () => {
+    try {
+        const {data} = await $host.get('/news-get-admin', {});
+        
+        return(data)   
+    } catch(e) {
+        return(e)
+    }
+}
+
 export const newsGetId = async (id) => {
     try {
         const {data} = await $host.get(`/news-get-id/${id}`,);
@@ -20,7 +30,7 @@ export const newsGetId = async (id) => {
     }
 }
 
-export const newsCreate = async (name, text, dop_text, img) => {
+export const newsCreate = async (name, text, dop_text, img, visible) => {
     try {
         const token = localStorage.getItem('token'); // Получаем токен из localStorage
         const { data } = await $host.post(
@@ -29,7 +39,8 @@ export const newsCreate = async (name, text, dop_text, img) => {
                 name,
                 text,
                 dop_text,
-                img
+                img,
+                visible
             },
             {
                 headers: { 
@@ -44,7 +55,7 @@ export const newsCreate = async (name, text, dop_text, img) => {
     }
 }
 
-export const newsChange = async (id, name, text, dop_text, img) => {
+export const newsChange = async (id, name, text, dop_text, img, visible) => {
     try {
         const token = localStorage.getItem('token'); // Получаем токен из localStorage
         const { data } = await $host.patch(
@@ -55,6 +66,7 @@ export const newsChange = async (id, name, text, dop_text, img) => {
                 text,
                 dop_text,
                 img,
+                visible
             },
             {
                 headers: { 
@@ -73,12 +85,11 @@ export const newsDelete = async (id) => {
     try {
         const token = localStorage.getItem('token'); // Получаем токен из localStorage
         const { data } = await $host.delete(
-            '/news-delete',
+            `/news-delete/${id}`,
             {
                 headers: { 
                     Authorization: `Bearer ${token}` // Указываем токен в заголовке
                 },
-                data: { id }, // Передаем id как часть данных запроса
             }
         );
         

@@ -8,7 +8,7 @@ const $authHost = axios.create({
     baseURL: "http://localhost:8000/api/"
 })
 
-let $host = $linkHost
+let $host = $authHost
 
 const authInterceptor = config => {
     config.headers.authorization = `Bearer ${localStorage.getItem('token')}`

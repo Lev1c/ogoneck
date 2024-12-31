@@ -10,6 +10,16 @@ export const infoGet = async () => {
     }
 }
 
+export const infoGetAdmin = async () => {
+    try {
+        const {data} = await $host.get('/info-get-admin', {});
+        
+        return(data)   
+    } catch(e) {
+        return(e)
+    }
+}
+
 export const infoGetId = async (id) => {
     try {
         const {data} = await $host.get(`/info-get-id/${id}`);

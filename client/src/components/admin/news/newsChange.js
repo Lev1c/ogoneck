@@ -20,6 +20,7 @@ function NewsChange() {
    const [name, setName] = useState("")
    const [text, setText] = useState("")
    const [dopText, setDopText] = useState("")
+   const [visible, setVisible] = useState()
 
    useEffect(() => { 
       newsGetId(id).then((res) => {
@@ -29,13 +30,13 @@ function NewsChange() {
         setBase64(res.img)
         setNewsRes(res)
         setDopText(res.dop_text)
+        setVisible(res.visible)
     })
-   }, [id])
+   }, [])
 
-   console.log(newsRes)
 
    const clickSave = () => {
-    newsChange(idNews, name, text, dopText, base64).then(res => {
+    newsChange(idNews, name, text, dopText, base64, visible).then(res => {
         if(res.status === 200) {
         alert(res.message)
         console.log(res)
@@ -67,61 +68,107 @@ function NewsChange() {
         reader.readAsDataURL(file);
     };
 
-    const [content, setContent] = useState(""); // Данные редактора
-
-  // Конфигурация модулей Quill
-
   const Editor = {
-      modules: {
-        toolbar: [
-          [{ header: [1, 2, 3, false] }],
-          ["bold", "italic", "underline", "strike"], // Форматирование текста
-          ["image", "blockquote", "code-block"], // Вставка изображений, цитат, блоков кода
-          [{ list: "ordered" }, { list: "bullet" }], // Списки
-          ["clean"], // Очистка форматирования
-      ],
-        resize: {
-          locale: {},
-        },
+    modules: {
+      toolbar: [
+        [{ 'header': [1, 2, false] }, { 'font': [] }],
+        ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+        [{'list': 'ordered'}, {'list': 'bullet'}, 
+         {'indent': '-1'}, {'indent': '+1'}],
+        ['link', 'image', 'video'],
+        ['clean']
+    ],
+      resize: {
+        locale: {},
       },
-      formats: [
-        'image',
-        'header', 
-    'bold', 'italic', 'underline', 'strike', 
-    'image', 'blockquote', 'code-block', 
-    'list', 'bullet'
-      ],
-    }
-    console.log(content)
+    },
+    
+  }
+
+  console.log(visible)
+
   return (
     <div className="container">
         <div className="admin-block">
+          <div style={{display: 'flex'}}>
             <Link className="info-link-back" onClick={() => navigate(-1)}>
                 <i class="bi bi-arrow-left"></i>
             </Link>
+          </div>
             <div className="admin-block-title">
-                <input
-                    className="admin-block-title_input"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
+                <div className="admin-block-title-block">
+                  <div>
+                    <input
+                        type="file"
+                        id="fileInput"
+                        onChange={handleFileChange}
+                        style={{ display: 'none' }} // Скрываем стандартную кнопку
+                    />
+
+                    <label
+                        htmlFor="fileInput"
+                        style={{
+                            padding: '10px 20px',
+                            color: '#fff',
+                            cursor: 'pointer',
+                            borderRadius: '5px',
+                            textAlign: 'center',
+                            width: '150px',
+                            height: '150px',
+                            border: '1px solid #ccc',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            backgroundColor: base64 ? 'transparent' : '#f0f0f0',
+                        }}
+                    >
+                        {base64 ? (
+                            <img src={base64} alt="Base64 preview" style={{ maxWidth: '100%', height: 'auto' }} />
+                        ) : (
+                            <p>Пусто</p>
+                        )}
+                    </label>
+                  </div>
+                  <div style={{width: "50%"}}>
+                    <p>Название</p>
+                    <input
+                        className="admin-block-title_input"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        style={{marginBottom: 15}}
+                    />
+                    <p>Краткий рассказ</p>
+                    <input
+                        className="admin-block-title_input"
+                        value={dopText}
+                        onChange={(e) => setDopText(e.target.value)}
+                    />
+                  </div>
+                </div>
                 <div className="button-admin">
                     <button className="button-admin_delete" onClick={() => clickDelete()}><i class="bi bi-trash-fill"></i> Удалить</button>
                     <button className="admin-block-title_button" onClick={() => clickSave()}><i class="bi bi-check-lg"></i> Сохранить</button>
+                    <div className="admin-checkbox-block">
+                      Видимость
+                      <label class="checkbox-ios">
+                        <input 
+                          type="checkbox" 
+                          checked={visible} 
+                          onChange={(e) => setVisible(e.target.checked)} 
+                        />
+                      	<span class="checkbox-ios-switch"></span>
+                      </label>
+                    </div>
                 </div>
             </div>
-            <div>
-                {base64 && <img src={base64} alt="Base64 preview" style={{ maxWidth: '10%', height: 'auto' }} />}
-                <input type="file" onChange={handleFileChange} />
-            </div>
-            <div style={{ margin: "20px" }}>
+            <div style={{ marginTop: "20px", borderRadius: "50px" }}>
               <ReactQuill
                 modules={Editor.modules}
                 formats={Editor.formats}
                 theme='snow'
                 value={text}
                 onChange={setText}
-                style={{ height: "300px", marginBottom: "20px", borderRadius: 10 }}
+                style={{ height: "500px", borderRadius: "20px" }}
               />
             </div>
         </div>

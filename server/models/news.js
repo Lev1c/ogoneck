@@ -14,6 +14,9 @@ const News = sequelize.define('News', {
   },
   dop_text: {
     type: DataTypes.STRING,
+  },
+  visible: {
+    type: DataTypes.BOOLEAN,
   }
 });
 

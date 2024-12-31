@@ -1,14 +1,16 @@
 const { Info } = require('../models/info');
 
+
 class InfoController {
 
     async createInfo(req, res) {
         try {
-            const { name, text } = req.body;
+            const { name, text, visible } = req.body;
             
             const info = await Info.create({
                 name,
-                text, 
+                text,
+                visible
             });
 
             return res.json(info);
@@ -20,9 +22,20 @@ class InfoController {
     
     async getAllInfo(req, res) {
         try {
-            const info = await Info.findAll();
+            const info = await Info.findAll({where: {visible: true}});
 
             res.json(info);
+        } catch (error) {
+            console.error("Error fetching documents: ", error);
+            res.status(500).json({ error: 'Произошла ошибка' });
+        }
+    }
+
+    async getAllInfoAdmin(req, res) {
+        try {
+            const news = await Info.findAll();
+
+            res.json(news);
         } catch (error) {
             console.error("Error fetching documents: ", error);
             res.status(500).json({ error: 'Произошла ошибка' });
@@ -70,7 +83,7 @@ class InfoController {
 
     async updateInfo(req, res) {
         try {
-            const { id, name, text } = req.body; // Получаем данные для обновления
+            const { id, name, text, visible } = req.body; // Получаем данные для обновления
 
             // Ссылка на документ в коллекции "news"
             const info = await Info.findOne({ where: { id: id } });
@@ -82,6 +95,7 @@ class InfoController {
             // Обновляем поля документа
             info.name = name;
             info.text = text;
+            info.visible = visible;
 
             await info.save();
 

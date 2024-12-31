@@ -5,14 +5,15 @@ class NewsController {
     async createNews(req, res) {
         try {
 
-        const { name, text, img, dop_text } = req.body;
+        const { name, text, img, dop_text, visible } = req.body;
 
         // Создаем новый документ в коллекции "news"
         const newNews = await News.create({
             name,
             text, 
             img, 
-            dop_text
+            dop_text,
+            visible
         });
 
         return res.json(newNews);
@@ -22,12 +23,28 @@ class NewsController {
     }
     }
     
+    async getAllNewsAdmin(req, res) {
+        try {
+            const news = await News.findAll({
+                order: [
+                    ['id', 'DESC']
+                ],
+            });
+
+            res.json(news);
+        } catch (error) {
+            console.error("Error fetching documents: ", error);
+            res.status(500).json({ error: 'Произошла ошибка' });
+        }
+    }
+
     async getAllNews(req, res) {
         try {
             const news = await News.findAll({
                 order: [
                     ['id', 'DESC']
                 ],
+                where: {visible: true}
             });
 
             res.json(news);
@@ -77,7 +94,7 @@ class NewsController {
 
     async updateNews(req, res) {
         try {
-            const { id, name, text, img, dop_text } = req.body; // Получаем данные для обновления
+            const { id, name, text, img, dop_text, visible } = req.body; // Получаем данные для обновления
 
             // Ссылка на документ в коллекции "news"
             const news = await News.findOne({ where: { id: id } });
@@ -91,6 +108,7 @@ class NewsController {
             news.text = text;
             news.img = img;
             news.dop_text = dop_text;
+            news.visible = visible;
 
             await news.save();
 

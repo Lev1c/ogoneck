@@ -25,9 +25,11 @@ function InfoCreate() {
   return (
     <div className="container">
         <div className="admin-block">
-            <Link className="info-link-back" onClick={() => navigate(-1)}>
-                <i class="bi bi-arrow-left"></i>
-            </Link>
+            <div style={{display: 'flex'}}>
+                <Link className="info-link-back" onClick={() => navigate(-1)}>
+                    <i class="bi bi-arrow-left"></i>
+                </Link>
+            </div>
             <div className="admin-block-title">
                 <input
                     className="admin-block-title_input"

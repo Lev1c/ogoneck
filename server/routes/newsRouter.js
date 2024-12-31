@@ -8,6 +8,8 @@ router.get('/news-get', userContoller.getAllNews);
 router.get('/news-get-id/:id', userContoller.getNewsById);
 
 
+router.get('/news-get-admin', userContoller.getAllNewsAdmin);
+
 router.post('/news-create', userContoller.createNews);
 
 router.patch('/news-change', userContoller.updateNews);

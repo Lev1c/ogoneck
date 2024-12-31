@@ -9,6 +9,9 @@ const Info = sequelize.define('Info', {
   text: {
     type: DataTypes.TEXT,
   },
+  visible: {
+    type: DataTypes.BOOLEAN,
+  }
 });
 
 

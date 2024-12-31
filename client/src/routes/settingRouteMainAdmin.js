@@ -8,6 +8,7 @@ import NewsChange from '../components/admin/news/newsChange';
 import InfoAdmin from '../components/admin/info/info';
 import InfoCreate from '../components/admin/info/infoCreate';
 import InfoChange from '../components/admin/info/infoChange';
+import DocumentAdmin from '../components/admin/document/document';
 
 const SettingRouteMainAdmin = () => {
 
@@ -21,6 +22,8 @@ const SettingRouteMainAdmin = () => {
                 <Route key={1} path={'/info'} element={<InfoAdmin/>} exact/>
                 <Route key={1} path={'/info/create'} element={<InfoCreate/>} exact/>
                 <Route key={1} path={'/info/change/:id'} element={<InfoChange/>} exact/>
+
+                <Route key={1} path={'/document'} element={<DocumentAdmin/>} exact/>
 
                 <Route path="*" element={<Navigate to="/admin" />}/>
             </Routes>

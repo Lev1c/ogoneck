@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import { newsGet } from "../../../api/news";
+import { newsGetAdmin } from "../../../api/news";
 import { Link } from "react-router-dom";
-
+import moment from 'moment'
 
 function NewsAdmin() {
 
   const [newsList, setNewsList] = useState()
 
   useEffect(() => {
-    newsGet().then(res => setNewsList(res))
+    newsGetAdmin().then(res => setNewsList(res))
   }, [])
+
+  
 
   return (
     <div>
@@ -25,16 +27,17 @@ function NewsAdmin() {
           </div>
             <div className="news-block-for-card">
               {newsList && newsList.map(res => {
+                let time = moment(res && res.createdAt).format('DD.MM.YYYY')
                 return (
                   <Link className="news-block-card" to={`/admin/news/change/${res.id}`}>
                         <div className='news-block-card-block-img'>
                           <img className='news-block-card-img' src={res.img} alt=''/>
                         </div>
                       <div className="news-block-card-link-arrow">
-                        <div className='news-block-card-block-text'>
+                      <div className='news-block-card-block-text'>
                           <p className='news-block-card-title'>{res.name}</p>
-                          <span className='news-block-card-date'>22.02.2022</span>
-                          <p className='news-block-card-text'>{res.dopText}</p>
+                          <p className='news-block-card-text'>{res.dop_text}</p>
+                          <span className='news-block-card-date'>{time}</span>
                         </div>
                     
                         <div className='news-block-card-arrow'>

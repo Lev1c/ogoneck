@@ -16,7 +16,9 @@ function MainInfo() {
     return (
     <div className="container"> 
       <div className="info">
-        <h2>Меню</h2>
+          <div className="news-title">
+            <h2 className="news-title-text">Меню</h2>
+          </div>
             <div className="info-block">
                 {list ? 
                 list && list.map(res => {
