@@ -1,333 +1,334 @@
 .admin-head {
-    background-color: #3a66b3;
+  background-color: #3a66b3;
 }
 
 .admin-header {
-    display: flex;
-    gap: 30px;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-bottom: 30px;
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
 }
 
 .admin-header-title {
-    font-family: 600;
+  font-family: 600;
 }
 
 .admin-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-transform: uppercase;
-    border-bottom: 1px solid #3a66b3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid #3a66b3;
 }
 
 .admin-title h2 {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .admin-header-link {
-    gap: 30px;
-    display: flex;
+  gap: 30px;
+  display: flex;
 }
 
 .button-admin-link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .admin-header_link {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
 .admin-header_link:hover {
-    color: #b6b6b6;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
+  color: #b6b6b6;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
 .button-admin {
-    gap: 20px;
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
+  gap: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .button-admin_exit {
-    background-color: #3a66b3;
-    border-radius: 5px;
-    border: 1px solid rgb(255, 255, 255);
-    padding: 3px 10px 3px 10px;
+  background-color: #3a66b3;
+  border-radius: 5px;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 3px 10px 3px 10px;
 
-    color: rgb(255, 255, 255);
-    font-weight: 600;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
 
-    display: flex;
-    gap: 5px;
-    align-items: center;
+  display: flex;
+  gap: 5px;
+  align-items: center;
 
-    transition: 0.3s;
+  transition: 0.3s;
 }
 
 .button-admin_exit:hover {
-    background-color: #ffffff;
-    border: 1px solid #3a66b3;
-    color: rgb(0, 0, 0);
-    transition: 0.3s;
+  background-color: #ffffff;
+  border: 1px solid #3a66b3;
+  color: rgb(0, 0, 0);
+  transition: 0.3s;
 }
 
 .button-admin_create {
-    background-color: rgb(28, 97, 224);
-    border-radius: 5px;
-    border: 1px solid rgb(28, 97, 224);
-    padding: 5px 30px 5px 25px;
+  background-color: rgb(28, 97, 224);
+  border-radius: 5px;
+  border: 1px solid rgb(28, 97, 224);
+  padding: 5px 30px 5px 25px;
 
-    color: white;
-    font-weight: 600;
+  color: white;
+  font-weight: 600;
 
-    display: flex;
-    gap: 5px;
-    align-items: center;
+  display: flex;
+  gap: 5px;
+  align-items: center;
 
-    transition: 0.3s;
+  transition: 0.3s;
 }
 
 .button-admin_create:hover {
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(28, 97, 224);
-    color: rgb(28, 97, 224);
-    transition: 0.3s;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(28, 97, 224);
+  color: rgb(28, 97, 224);
+  transition: 0.3s;
 }
 
 .button-admin_delete {
-    background-color: rgb(245, 65, 65);
-    border-radius: 5px;
-    border: 1px solid rgb(245, 65, 65);
-    padding: 5px 30px 5px 25px;
-    color: white;
-    font-weight: 600;
-    width: 45%;
-    display: flex
-;
-    gap: 5px;
-    align-items: center;
-    transition: 0.3s;
+  background-color: rgb(245, 65, 65);
+  border-radius: 5px;
+  border: 1px solid rgb(245, 65, 65);
+  padding: 5px 30px 5px 25px;
+  color: white;
+  font-weight: 600;
+  width: 45%;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  transition: 0.3s;
 
-    justify-content: center;
+  justify-content: center;
 }
 
 .button-admin_delete:hover {
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(245, 65, 65);
-    color: rgb(245, 65, 65);
-    transition: 0.3s;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(245, 65, 65);
+  color: rgb(245, 65, 65);
+  transition: 0.3s;
 }
 
 .admin-block-title {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .admin-block-title_button {
-    background-color: rgb(8, 218, 19);
-    border-radius: 5px;
-    border: 1px solid rgb(8, 218, 19);
-    padding: 5px 30px 5px 25px;
-    color: white;
-    font-weight: 600;
-    display: flex;
-    gap: 5px;
-    width: 45%;
-    align-items: center;
-    transition: 0.3s;
-    justify-content: center;
+  background-color: rgb(8, 218, 19);
+  border-radius: 5px;
+  border: 1px solid rgb(8, 218, 19);
+  padding: 5px 30px 5px 25px;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  gap: 5px;
+  width: 45%;
+  align-items: center;
+  transition: 0.3s;
+  justify-content: center;
 }
 
 .admin-block-title_button:hover {
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(8, 218, 19);
-    color: rgb(8, 218, 19);
-    transition: 0.3s;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(8, 218, 19);
+  color: rgb(8, 218, 19);
+  transition: 0.3s;
 }
 
 .admin-block-title_textarea {
-    margin-top: 20px;
-    width: 100%;
-    min-height: 200px;
+  margin-top: 20px;
+  width: 100%;
+  min-height: 200px;
 }
 
 .admin-block-title-block {
-    width: 80%;
-    display: flex;
-    gap: 20px;
-    align-items: flex-end;
+  width: 80%;
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
 }
 
 .admin-block-title_input {
-    border: none;
-    width: 100%;
-    border-bottom: 1px solid black;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid black;
 }
-
 
 /* checkbox */
 
 .checkbox-ios {
-	display: inline-block;    
-	height: 20px;    
-	line-height: 28px;  
-	margin-right: 10px;      
-	position: relative;
-	vertical-align: middle;
-	font-size: 14px;
-	user-select: none;	
+  display: inline-block;
+  height: 20px;
+  line-height: 28px;
+  margin-right: 10px;
+  position: relative;
+  vertical-align: middle;
+  font-size: 14px;
+  user-select: none;
 }
 .checkbox-ios .checkbox-ios-switch {
-	position: relative;	
-	display: inline-block;
-	box-sizing: border-box;			
-	width: 40px;	
-	height: 20px;
-	border: 1px solid rgba(0, 0, 0, .1);
-	border-radius: 25%/50%;	
-	vertical-align: top;
-	background: #eee;
-	transition: .2s;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 40px;
+  height: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 25%/50%;
+  vertical-align: top;
+  background: #eee;
+  transition: 0.2s;
 }
 .checkbox-ios .checkbox-ios-switch:before {
-	content: '';
-	position: absolute;
-	top: 1px;
-	left: 1px;	
-	display: inline-block;
-	width: 20px;	
-	height: 16px;
-	border-radius: 50%;
-	background: white;
-	box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-	transition: .15s;
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  display: inline-block;
+  width: 20px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  transition: 0.15s;
 }
-.checkbox-ios input[type=checkbox] {
-	display: block;	
-	width: 0;
-	height: 0;	
-	position: absolute;
-	z-index: -1;
-	opacity: 0;
+.checkbox-ios input[type="checkbox"] {
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
 }
-.checkbox-ios input[type=checkbox]:not(:disabled):active + .checkbox-ios-switch:before {
-	box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
+.checkbox-ios
+  input[type="checkbox"]:not(:disabled):active
+  + .checkbox-ios-switch:before {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
 }
-.checkbox-ios input[type=checkbox]:checked + .checkbox-ios-switch {
-	background: rgb(50, 117, 205);
+.checkbox-ios input[type="checkbox"]:checked + .checkbox-ios-switch {
+  background: rgb(50, 117, 205);
 }
-.checkbox-ios input[type=checkbox]:checked + .checkbox-ios-switch:before {
-	transform:translateX(16px);
+.checkbox-ios input[type="checkbox"]:checked + .checkbox-ios-switch:before {
+  transform: translateX(16px);
 }
- 
+
 /* Hover */
 .checkbox-ios input[type="checkbox"]:not(:disabled) + .checkbox-ios-switch {
-	cursor: pointer;
-	border-color: rgba(0, 0, 0, .3);
+  cursor: pointer;
+  border-color: rgba(0, 0, 0, 0.3);
 }
- 
+
 /* Disabled */
-.checkbox-ios input[type=checkbox]:disabled + .checkbox-ios-switch {
-	filter: grayscale(70%);
-	border-color: rgba(0, 0, 0, .1);
+.checkbox-ios input[type="checkbox"]:disabled + .checkbox-ios-switch {
+  filter: grayscale(70%);
+  border-color: rgba(0, 0, 0, 0.1);
 }
-.checkbox-ios input[type=checkbox]:disabled + .checkbox-ios-switch:before {
-	background: #eee;
+.checkbox-ios input[type="checkbox"]:disabled + .checkbox-ios-switch:before {
+  background: #eee;
 }
- 
+
 /* Focus */
 .checkbox-ios.focused .checkbox-ios-switch:before {
-	box-shadow: inset 0px 0px 4px #ff5623;
+  box-shadow: inset 0px 0px 4px #ff5623;
 }
 
 .admin-checkbox-block {
-    display: flex;
-    gap: 10px;
-    align-items: flex-end;
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
 }
 
 /* quil */
 
 .ql-container {
-    min-height: 10em;
-    border-bottom-left-radius: 0.5em;
-    border-bottom-right-radius: 0.5em;
-    background: #fefcfc;
-  }
-  
+  min-height: 10em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  background: #fefcfc;
+}
+
 .ql-toolbar {
-    background: #0059ff1c;
-    border-top-left-radius: 0.5em;
-    border-top-right-radius: 0.5em;
-  }
+  background: #0059ff1c;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
 
 .card-doc {
-    display: flex;
-    padding: 5px 20px;
-    padding-left: 10px;
-    border: 1px solid #507cc9;
-    border-radius: 10px;
-    align-items: center;
-    gap: 5px;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    background-color: #507cc9;
-    transition: 0.2s;
-    width: 31%;
-    justify-content: space-between;
+  display: flex;
+  padding: 5px 20px;
+  padding-left: 10px;
+  border: 1px solid #507cc9;
+  border-radius: 10px;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background-color: #507cc9;
+  transition: 0.2s;
+  width: 31%;
+  justify-content: space-between;
 }
 
 .card-doc:hover {
-    background-color: #ffffff;
-    color: black;
-    transition: 0.2s;
+  background-color: #ffffff;
+  color: black;
+  transition: 0.2s;
 }
 
 .card-doc:hover .card-doc-icon {
-    color: #000000;
+  color: #000000;
 }
 
-.card-doc h4{
-    margin: 0;
-    font-size: 14px;
-    -webkit-line-clamp: 2;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.card-doc h4 {
+  margin: 0;
+  font-size: 14px;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-doc-icon {
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 20px;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 20px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .card-doc__button-delete {
-    border: none;
-    background: none;
-    font-size: 18px;
-    transition: 0.3s;
+  border: none;
+  background: none;
+  font-size: 18px;
+  transition: 0.3s;
 }
 
 .card-doc__button-delete:hover {
-    color: #f11515;
-    transition: 0.3s;
+  color: #f11515;
+  transition: 0.3s;
 }

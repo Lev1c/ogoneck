@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
-@import '~react-quill/dist/quill.snow.css';
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap");
+@import "~react-quill/dist/quill.snow.css";
 
 body {
-    font-family: "Geologica", serif;
-    padding: 0;
-    margin: 0;
-    scroll-behavior: smooth;
+  font-family: "Geologica", serif;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
 }
 
 .container {
-    width: 1320px;
-    margin: auto;
+  width: 1320px;
+  margin: auto;
 }
 
 .mr-5 {
-    margin-right: 5px;
+  margin-right: 5px;
 }
