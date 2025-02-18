@@ -1,14 +1,14 @@
 import axios from "axios";
 
 const $linkHost = axios.create({
-    baseURL: "http://89.111.142.69:8000/api"
+    baseURL: "http://95.214.62.165:8000/api"
 })
 
 const $authHost = axios.create({
     baseURL: "http://localhost:8000/api/"
 })
 
-let $host = $authHost
+let $host = $linkHost
 
 const authInterceptor = config => {
     config.headers.authorization = `Bearer ${localStorage.getItem('token')}`
