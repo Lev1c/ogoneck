@@ -17,7 +17,6 @@
 }
 
 .admin-title {
-<<<<<<< HEAD
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,13 +24,6 @@
     border-bottom: 1px solid #3a66b3;
     padding-top: 10px;
     padding-bottom: 10px;
-=======
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-transform: uppercase;
-  border-bottom: 1px solid #3a66b3;
->>>>>>> b3b0fc4640bcf880e578f2520a300ca8436f879e
 }
 
 .admin-title h2 {

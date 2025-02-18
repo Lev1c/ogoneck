@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import photoTest from "../../../img/backHome.png";
 import { useEffect, useState } from "react";
 import { newsGet } from "../../../api/news";
 import moment from "moment";

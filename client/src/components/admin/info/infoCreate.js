@@ -26,8 +26,6 @@ function InfoCreate() {
     });
   };
 
-  const [content, setContent] = useState("");
-
   const Editor = {
     modules: {
       toolbar: [

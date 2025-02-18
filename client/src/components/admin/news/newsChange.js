@@ -13,8 +13,6 @@ function NewsChange() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [newsRes, setNewsRes] = useState();
-
   const [idNews, setIdNews] = useState("");
   const [name, setName] = useState("");
   const [text, setText] = useState("");
@@ -27,10 +25,10 @@ function NewsChange() {
       setName(res.name);
       setText(res.text);
       setBase64(res.img);
-      setNewsRes(res);
       setDopText(res.dop_text);
       setVisible(res.visible);
     });
+    // eslint-disable-next-line
   }, []);
 
   const clickSave = () => {

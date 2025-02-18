@@ -21,7 +21,7 @@ function NewsCreate() {
   const [visible, setVisible] = useState(false);
 
   const clickCreate = () => {
-    newsCreate(name, content, dopText, base64, visible).then((res) => {
+    newsCreate(name, "", dopText, base64, visible).then((res) => {
       console.log(res);
       if (res.status === 200) {
         alert(res.message);
@@ -40,7 +40,6 @@ function NewsCreate() {
     reader.readAsDataURL(file);
   };
 
-  const [content, setContent] = useState("");
 
   const Editor = {
     modules: {
