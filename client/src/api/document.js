@@ -30,3 +30,21 @@ export const documentCreate = async (name, doc) => {
         throw e;
     }
 };
+
+export const docDelete = async (id) => {
+    try {
+        const token = localStorage.getItem('token'); // Получаем токен из localStorage
+        const { data } = await $host.delete(
+            `/document-delete/${id}`,
+            {
+                headers: { 
+                    Authorization: `Bearer ${token}` // Указываем токен в заголовке
+                },
+            }
+        );
+        
+        return(data)
+    } catch(e) {
+        return(e)
+    }
+}

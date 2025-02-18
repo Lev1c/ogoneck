@@ -9,13 +9,14 @@ class DocumentController {
             const { name } = req.body;
 
             const file = req.file;
+            console.log(file)
             if (!file) {
               return res.status(400).json({ error: 'Файл не загружен' });
             }
             
             const doc = await Document.create({
                 name,
-                fileName: file.originalname, // Имя файла
+                fileName: file.filename, // Имя файла
                 filePath: file.path, 
             });
 
@@ -28,7 +29,11 @@ class DocumentController {
     
     async getAllDocument(req, res) {
         try {
-            const info = await Document.findAll();
+            const info = await Document.findAll({
+                order: [
+                    ['id', 'DESC']
+                ],
+            });
 
             res.json(info);
         } catch (error) {
@@ -54,7 +59,7 @@ class DocumentController {
         }
     }
 
-    async deleteInfo(req, res) {
+    async deleteDocument(req, res) {
         try {
             const { id } = req.params; // Получаем id документа из параметров маршрута
 
@@ -68,6 +73,28 @@ class DocumentController {
             await infoId.destroy();
 
             return res.json({ message: 'Новость успешно удалена', infoId, status: 200});
+        } catch (error) {
+            console.error('Ошибка при удалении новости:', error);
+            return res.status(500).json({ error: 'Произошла ошибка при удалении новости' });
+        }
+    }
+
+    async cnahgeNameDocument(req, res) {
+        try {
+            const { id, name } = req.body; // Получаем id документа из параметров маршрута
+
+            const infoId = await Document.findOne({ where: { id: id } });
+            
+            if (!infoId) {
+                return res.status(400).json({ error: 'Не существует' });
+            }
+
+            // Удаляем документ
+            infoId.name = name;
+
+            await infoId.save();
+
+            return res.json({ message: 'Doc успешно обновлена', status: 200 });
         } catch (error) {
             console.error('Ошибка при удалении новости:', error);
             return res.status(500).json({ error: 'Произошла ошибка при удалении новости' });

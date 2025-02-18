@@ -22,6 +22,8 @@
     align-items: center;
     text-transform: uppercase;
     border-bottom: 1px solid #3a66b3;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .admin-title h2 {
@@ -325,9 +327,112 @@
     background: none;
     font-size: 18px;
     transition: 0.3s;
+    color: #ffffff;
 }
 
-.card-doc__button-delete:hover {
+.card-doc__button-default {
+    border: none;
+    background: none;
+    font-size: 18px;
+    transition: 0.3s;
+    color: #ffffff;
+}
+
+.card-doc:hover .card-doc__button-default {
+    color: #000000;
+}
+
+.card-doc:hover .card-doc__button-delete {
+    color: #000000;
+}
+
+.card-doc:hover .card-doc__button-default:hover {
+    color: #1519f1;
+    transition: 0.3s;
+}
+
+.card-doc:hover  .card-doc__button-delete:hover {
     color: #f11515;
     transition: 0.3s;
+}
+
+
+.admin-doc-upload {
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.admin-doc-upload i {
+    font-size: 24px;
+}
+
+.admin-doc-upload_input {
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.admin-doc-upload_button {
+    border-radius: 5px;
+    border: 0px solid black;
+    padding: 0px 10px;
+    background: none;
+    transition: 0.3s;
+}
+
+.admin-doc-upload_button i {
+    font-size: 18px;
+}
+
+
+.admin-doc-upload_button:hover {
+    background-color: #18ec22;
+    border: 0px solid #18ec22;
+    color: white;
+    transition: 0.3s;
+}
+
+.card-doc-icon {
+    width: 50%;
+}
+
+.card-doc-icon_title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.window-admin-alert {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    background-color: #32ba7680;
+}
+
+.window-admin-alert_text {
+    display: flex;
+    gap: 5px;
+}
+
+.window-admin-alert-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.window-admin-alert-title {
+    margin: 0;
+}
+
+.window-admin-alert-title_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 0;
 }
