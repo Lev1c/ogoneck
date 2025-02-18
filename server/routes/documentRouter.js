@@ -1,8 +1,8 @@
-const Router = require('express')
-const router = new Router()
-const documentContoller = require('../controllers/documentController');
-const adminAuthMiddleware = require('../middleware/authMiddleware');
-const multer = require('multer');
+const Router = require("express");
+const router = new Router();
+const documentContoller = require("../controllers/documentController");
+const adminAuthMiddleware = require("../middleware/authMiddleware");
+const multer = require("multer");
 
 const crypto = require('crypto');
 
