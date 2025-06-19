@@ -15,10 +15,10 @@ function InfoCreate() {
 
   const [name, setName] = useState("");
   const [text, setText] = useState("");
-  const [visible, setVisible] = useState("");
+  const [visible, setVisible] = useState(false);
 
   const clickCreate = () => {
-    infoCreate(name, text).then((res) => {
+    infoCreate(name, text, visible).then((res) => {
       console.log(res);
       if (res.status === 200) {
         alert(res.message);
@@ -61,7 +61,7 @@ function InfoCreate() {
       "video",
     ],
   };
-
+  console.log(visible);
   return (
     <div className="container">
       <div className="admin-block">
@@ -95,7 +95,10 @@ function InfoCreate() {
                 <input
                   type="checkbox"
                   checked={visible}
-                  onChange={(e) => setVisible(e.target.checked)}
+                  onChange={(e) => {
+                    setVisible(e.target.checked);
+                    console.log(visible);
+                  }}
                 />
                 <span class="checkbox-ios-switch"></span>
               </label>

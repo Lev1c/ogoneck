@@ -1,10 +1,9 @@
-const sequelize = require('../db');
-const { DataTypes } = require('sequelize');
+const sequelize = require("../db");
+const { DataTypes } = require("sequelize");
 
-const News = sequelize.define('News', {
+const News = sequelize.define("News", {
   name: {
     type: DataTypes.STRING,
-    unique: true,
   },
   text: {
     type: DataTypes.TEXT,
@@ -17,10 +16,9 @@ const News = sequelize.define('News', {
   },
   visible: {
     type: DataTypes.BOOLEAN,
-  }
+  },
 });
 
-
 module.exports = {
-    News
+  News,
 };

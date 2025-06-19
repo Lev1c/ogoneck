@@ -8,13 +8,13 @@ function Header() {
         <div className="container header-one-block">
           <ul className="ul-header-one">
             <li className="ul-header-one-li">
-              <Link className="ul-header-one-li-link" to={"/"}>
+              <Link className="ul-header-one-li-link" to={"/feedback"}>
                 <i className="bi bi-telephone mr-5"></i>Обратная связь
               </Link>
             </li>
             <li className="ul-header-one-li">|</li>
             <li className="ul-header-one-li">
-              <Link className="ul-header-one-li-link" to={"/"}>
+              <Link className="ul-header-one-li-link" to={"/info/4"}>
                 <i className="bi bi-sign-stop mr-5"></i>
                 Противодействие коррупции
               </Link>
@@ -22,9 +22,9 @@ function Header() {
           </ul>
           <ul className="ul-header-one">
             <li className="ul-header-one-li">
-              <Link className="ul-header-one-li-link" to={"/"}>
+              {/* <Link className="ul-header-one-li-link" to={"/"}>
                 <i className="bi bi-eye mr-5"></i>Версия для слабовидящих
-              </Link>
+              </Link> */}
             </li>
             <li className="ul-header-one-li">|</li>
             <li className="ul-header-one-li">
@@ -48,7 +48,10 @@ function Header() {
             <div style={{ width: "83%" }}>
               <ul className="ul-header-two">
                 <li className="ul-header-two-li">
-                  <Link to={"/info/1"} className="ul-header-two-li-link">
+                  <Link
+                    to={"/info/1"}
+                    className="ul-header-two-li-link header-first-link"
+                  >
                     Cведения об учреждении
                   </Link>
                 </li>

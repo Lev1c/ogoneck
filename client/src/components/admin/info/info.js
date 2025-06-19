@@ -20,9 +20,6 @@ function InfoAdmin() {
                 <i class="bi bi-plus-lg"></i> Создать
               </button>
             </Link>
-            <button className="button-admin_delete">
-              <i class="bi bi-trash-fill"></i> Удалить
-            </button>
           </div>
         </div>
         <div className="info-block">

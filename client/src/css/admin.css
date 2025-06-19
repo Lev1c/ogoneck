@@ -437,3 +437,13 @@
     font-size: 20px;
     padding: 0;
 }
+
+.file-upload {
+  margin-top: 15px;
+}
+
+.file-upload button {
+  border-radius: 5px;
+  border: 1px solid #3a66b3;
+  background: none;
+}
