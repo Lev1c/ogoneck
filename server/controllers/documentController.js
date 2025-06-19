@@ -13,17 +13,11 @@ class DocumentController {
         return res.status(400).json({ error: "Файл не загружен" });
       }
 
-            const file = req.file;
-            console.log(file)
-            if (!file) {
-              return res.status(400).json({ error: 'Файл не загружен' });
-            }
-            
-            const doc = await Document.create({
-                name,
-                fileName: file.filename, // Имя файла
-                filePath: file.path, 
-            });
+      // Декодируем оригинальное имя файла из binary в utf-8
+      const decodedOriginalName = iconv.decode(
+        Buffer.from(file.originalname, "binary"),
+        "utf-8"
+      );
 
       const doc = await Document.create({
         name,
@@ -36,14 +30,7 @@ class DocumentController {
       console.error(error);
       return res.status(500).json({ error: "Произошла ошибка" });
     }
-    
-    async getAllDocument(req, res) {
-        try {
-            const info = await Document.findAll({
-                order: [
-                    ['id', 'DESC']
-                ],
-            });
+  }
 
   async getAllDocument(req, res) {
     try {
@@ -73,9 +60,9 @@ class DocumentController {
     }
   }
 
-    async deleteDocument(req, res) {
-        try {
-            const { id } = req.params; // Получаем id документа из параметров маршрута
+  async deleteInfo(req, res) {
+    try {
+      const { id } = req.params; // Получаем id документа из параметров маршрута
 
       const infoId = await Document.findOne({ where: { id: id } });
 
@@ -97,29 +84,7 @@ class DocumentController {
         .status(500)
         .json({ error: "Произошла ошибка при удалении новости" });
     }
-
-    async cnahgeNameDocument(req, res) {
-        try {
-            const { id, name } = req.body; // Получаем id документа из параметров маршрута
-
-            const infoId = await Document.findOne({ where: { id: id } });
-            
-            if (!infoId) {
-                return res.status(400).json({ error: 'Не существует' });
-            }
-
-            // Удаляем документ
-            infoId.name = name;
-
-            await infoId.save();
-
-            return res.json({ message: 'Doc успешно обновлена', status: 200 });
-        } catch (error) {
-            console.error('Ошибка при удалении новости:', error);
-            return res.status(500).json({ error: 'Произошла ошибка при удалении новости' });
-        }
-    }
-
+  }
 }
 
 module.exports = new DocumentController();

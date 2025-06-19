@@ -56,30 +56,6 @@ function DocumentAdmin() {
     }
   };
 
-  const copyDoc = (link) => {
-    setIcon(<i class="bi bi-check-lg"></i>);
-    setTextAlertTitle("Успех");
-    setTextAlert("Текст скопирован в буфер обмена!");
-    setStatusAlert(true);
-    setTimeout(() => {
-      setStatusAlert(false);
-    }, 3000);
-
-    navigator.clipboard.writeText(link);
-  };
-
-  const closeAlert = () => {
-    setStatusAlert(false);
-  };
-
-  const editDoc = (id) => {
-    setEditingId(id);
-  };
-
-  const editDocClose = () => {
-    setEditingId(null);
-  };
-
   return (
     <div>
       <div className="admin-block">
